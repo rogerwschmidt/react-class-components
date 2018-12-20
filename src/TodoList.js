@@ -1,16 +1,16 @@
 import React from 'react'
 
+import TodoItem from './TodoItem'
+
 function TodoList(props){
   return (
     <ul>
       {
         props.todos.map(todo => 
-          <li style={todo.completed ? { textDecoration: 'line-through' } : null } >
-
-            <button onClick={() => props.handleComplete(todo)}>Complete</button>
-            <button onClick={() => props.handleDelete(todo)}>Delete</button>
-            { todo.description }
-          </li>
+          <TodoItem 
+            todo={todo} 
+            handleComplete={props.handleComplete} 
+            handleDelete={props.handleDelete}/>
         )
       }
     </ul>
